@@ -38,6 +38,11 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
 
     private val viewModel: MainViewModel by viewModels()
 
+// <<<<<<< Handling-Location-Permissions
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        mapView.onCreate(savedInstanceState)
+// =======
     private var isTracking = false
     private var pathPoints = mutableListOf<Polyline>()
 
@@ -241,32 +246,9 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
     override fun onResume() {
         super.onResume()
         mapView?.onResume()
+// >>>>>>> master
     }
 
-    override fun onStart() {
-        super.onStart()
-        mapView?.onStart()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        mapView?.onStop()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        mapView?.onPause()
-    }
-
-    override fun onLowMemory() {
-        super.onLowMemory()
-        mapView?.onLowMemory()
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        mapView?.onSaveInstanceState(outState)
-    }
 }
 
 
